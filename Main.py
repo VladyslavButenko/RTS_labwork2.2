@@ -1,4 +1,5 @@
 import numpy as np
+from numpy import fft
 from random import *
 from math import sin, cos, pi
 import matplotlib.pyplot as plt
@@ -41,6 +42,12 @@ for i in range(N):
         F[i] += F2[i] + coeff_N[i] * F1[i]
     else:
         F[i] += F2[i - (N//2)] - coeff_N[i] * F1[i - (N//2)]
+
+Fl = fft.fft(x)
+nump_graph = plt.plot(Fl)
+plt.ylabel('numpy')
+plt.grid()
+plt.savefig("numpy.png")
 
 plt.ylabel('X')
 xpl = plt.plot(x)
